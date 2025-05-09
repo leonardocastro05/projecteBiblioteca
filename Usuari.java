@@ -4,10 +4,12 @@ import java.util.List;
 public class Usuari {
     private String nom;
     private List<Llibre> llibresPrestats;
+    private boolean eliminat;
 
     public Usuari(String nom) {
         this.nom = nom;
         this.llibresPrestats = new ArrayList<>();
+        this.eliminat = false;
     }
 
     public String getNom() {
@@ -24,5 +26,22 @@ public class Usuari {
 
     public void retornarLlibre(Llibre llibre) {
         llibresPrestats.remove(llibre);
+    }
+
+    public void modificarNom(String nouNom) {
+        this.nom = nouNom;
+    }
+
+    public void eliminarUsuari() {
+        this.eliminat = true;
+        System.out.println("Usuari eliminat: " + nom);
+    }
+
+    public boolean estaEliminat() {
+        return eliminat;
+    }
+
+    public String toString() {
+        return eliminat ? "[ELIMINAT]" : "Usuari: " + nom;
     }
 }
