@@ -6,6 +6,9 @@ public class Prestec {
     private LocalDate dataPrestec;
     private LocalDate dataRetorn;
 
+    // Limitar el prestec per usuari 
+    private static final int MAX_LLIBRES = 5;
+
     public Prestec(Usuari usuari, Llibre llibre, LocalDate dataPrestec) {
         this.usuari = usuari;
         this.llibre = llibre;
@@ -23,5 +26,10 @@ public class Prestec {
 
     public LocalDate getDataRetorn() {
         return dataRetorn;
+    }
+
+    // Nova funcionalitat: comprova si pot demanar més llibres
+    public static boolean potDemanarMesLlibres(Usuari usuari) {
+        return usuari.getLlibresPrestats().size() < MAX_LLIBRES;
     }
 }
