@@ -19,6 +19,7 @@ public class Main {
             System.out.println("4. Afegir llibre");
             System.out.println("5. Prestar llibre");
             System.out.println("6. Sortir");
+            System.out.println("7. Llistar llibres");
             System.out.print("Opció: ");
             int opcio = scanner.nextInt();
             scanner.nextLine();
@@ -83,24 +84,28 @@ public class Main {
                     System.out.print("Títol del llibre a prestar: ");
                     String titolPrestec = scanner.nextLine();
 
-                    // Cerca manual del llibre
                     Llibre llibrePrestar = null;
                     for (Llibre l : biblioteca.getLlibres()) {
                         if (l.getTitol().equalsIgnoreCase(titolPrestec)) {
                             llibrePrestar = l;
-                        break;
+                            break;
                         }
                     }
 
-                        if (llibrePrestar != null) {
-                               gestor.prestarLlibre(usuariPrestec, llibrePrestar);
-                        } else {
-                                System.out.println("Llibre no trobat.");
-                        }
+                    if (llibrePrestar != null) {
+                        gestor.prestarLlibre(usuariPrestec, llibrePrestar);
+                    } else {
+                        System.out.println("Llibre no trobat.");
+                    }
+                    break; // <- aquest break és important!
 
                 case 6:
                     sortir = true;
                     System.out.println("Sortint...");
+                    break;
+
+                case 7:
+                    biblioteca.llistarLlibres();
                     break;
 
                 default:
@@ -111,7 +116,6 @@ public class Main {
         scanner.close();
     }
 
-    // Funció auxiliar per buscar un usuari per nom
     private static Usuari trobarUsuari(List<Usuari> usuaris, String nom) {
         for (Usuari u : usuaris) {
             if (u.getNom().equalsIgnoreCase(nom)) {
