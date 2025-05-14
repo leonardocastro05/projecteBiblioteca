@@ -26,14 +26,14 @@ public class Main {
 
             switch (opcio) {
                 case 1:
-                    System.out.print("Nom de l’usuari: ");
+                    System.out.print("Nom de l'usuari: ");
                     String nomNou = scanner.nextLine();
                     usuaris.add(new Usuari(nomNou));
                     System.out.println("Usuari afegit.");
                     break;
 
                 case 2:
-                    System.out.print("Nom actual de l’usuari: ");
+                    System.out.print("Nom actual de l'usuari: ");
                     String nomActual = scanner.nextLine();
                     Usuari usuariMod = trobarUsuari(usuaris, nomActual);
                     if (usuariMod != null) {
@@ -47,7 +47,7 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.print("Nom de l’usuari a eliminar: ");
+                    System.out.print("Nom de l'usuari a eliminar: ");
                     String nomEliminar = scanner.nextLine();
                     Usuari usuariElim = trobarUsuari(usuaris, nomEliminar);
                     if (usuariElim != null) {
@@ -68,7 +68,7 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.print("Nom de l’usuari: ");
+                    System.out.print("Nom de l'usuari: ");
                     String nomPrestec = scanner.nextLine();
                     Usuari usuariPrestec = trobarUsuari(usuaris, nomPrestec);
                     if (usuariPrestec == null || usuariPrestec.estaEliminat()) {
@@ -77,7 +77,7 @@ public class Main {
                     }
 
                     if (!Prestec.potDemanarMesLlibres(usuariPrestec)) {
-                        System.out.println("L’usuari ha assolit el límit de llibres prestats.");
+                        System.out.println("L'usuari ha assolit el límit de llibres prestats.");
                         break;
                     }
 
@@ -97,7 +97,7 @@ public class Main {
                     } else {
                         System.out.println("Llibre no trobat.");
                     }
-                    break; // <- aquest break és important!
+                    break;
 
                 case 6:
                     sortir = true;
