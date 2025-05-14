@@ -82,13 +82,21 @@ public class Main {
 
                     System.out.print("Títol del llibre a prestar: ");
                     String titolPrestec = scanner.nextLine();
-                    Llibre llibrePrestec = biblioteca.buscarLlibre(titolPrestec);
-                    if (llibrePrestec != null) {
-                        gestor.prestarLlibre(usuariPrestec, llibrePrestec);
-                    } else {
-                        System.out.println("Llibre no trobat.");
+
+                    // Cerca manual del llibre
+                    Llibre llibrePrestar = null;
+                    for (Llibre l : biblioteca.getLlibres()) {
+                        if (l.getTitol().equalsIgnoreCase(titolPrestec)) {
+                            llibrePrestar = l;
+                        break;
+                        }
                     }
-                    break;
+
+                        if (llibrePrestar != null) {
+                               gestor.prestarLlibre(usuariPrestec, llibrePrestar);
+                        } else {
+                                System.out.println("Llibre no trobat.");
+                        }
 
                 case 6:
                     sortir = true;
