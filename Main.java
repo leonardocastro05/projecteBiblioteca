@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class temp {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Biblioteca biblioteca = new Biblioteca();
