@@ -8,10 +8,6 @@ public class Biblioteca {
         this.llibres = new ArrayList<>();
     }
 
-    public void afegirLlibre(Llibre llibre) {
-        llibres.add(llibre);
-    }
-
     public List<Llibre> getLlibres() {
         return llibres;
     }
