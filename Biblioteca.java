@@ -12,16 +12,19 @@ public class Biblioteca {
         llibres.add(llibre);
     }
 
-    public Llibre buscarLlibre(String titol) {
-        for (Llibre llibre : llibres) {
-            if (llibre.getTitol().equalsIgnoreCase(titol)) {
-                return llibre;
-            }
-        }
-        return null;
-    }
-
     public List<Llibre> getLlibres() {
         return llibres;
+    }
+
+    public void afegirLlibre(Llibre llibre) {
+        for (Llibre l : llibres) {
+            if (l.getTitol().equalsIgnoreCase(llibre.getTitol()) &&
+                    l.getAutor().equalsIgnoreCase(llibre.getAutor())) {
+                System.out.println("Aquest llibre ja existeix a la biblioteca.");
+                return;
+            }
+        }
+        llibres.add(llibre);
+        System.out.println("Llibre afegit correctament: " + llibre.getTitol());
     }
 }
