@@ -8,19 +8,32 @@ public class Biblioteca {
         this.llibres = new ArrayList<>();
     }
 
+    public void afegirLlibre(Llibre llibre) {
+        llibres.add(llibre);
+    }
+
+    public Llibre buscarLlibre(String titol) {
+        for (Llibre llibre : llibres) {
+            if (llibre.getTitol().equalsIgnoreCase(titol)) {
+                return llibre;
+            }
+        }
+        return null;
+    }
+
     public List<Llibre> getLlibres() {
         return llibres;
     }
 
-    public void afegirLlibre(Llibre llibre) {
-        for (Llibre l : llibres) {
-            if (l.getTitol().equalsIgnoreCase(llibre.getTitol()) &&
-                    l.getAutor().equalsIgnoreCase(llibre.getAutor())) {
-                System.out.println("Aquest llibre ja existeix a la biblioteca.");
-                return;
+    // Nou mètode per llistar llibres
+    public void llistarLlibres() {
+        if (llibres.isEmpty()) {
+            System.out.println("No hi ha llibres a la biblioteca.");
+        } else {
+            System.out.println("Llibres disponibles a la biblioteca:");
+            for (Llibre llibre : llibres) {
+                System.out.println("- " + llibre);
             }
         }
-        llibres.add(llibre);
-        System.out.println("Llibre afegit correctament: " + llibre.getTitol());
     }
 }
