@@ -33,8 +33,12 @@ public class Usuari {
     }
 
     public void eliminarUsuari() {
+        for (Llibre llibre : llibresPrestats) {
+            llibre.retornar();
+        }
+        llibresPrestats.clear();
         this.eliminat = true;
-        System.out.println("Usuari eliminat: " + nom);
+        System.out.println("Usuari eliminat: " + nom + ". Tots els llibres han estat retornats.");
     }
 
     public boolean estaEliminat() {
